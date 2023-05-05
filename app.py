@@ -1,5 +1,5 @@
 from flask import Flask, flash, redirect, render_template, request, url_for
-from flask_login import current_user
+from flask_login import current_user, login_required
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import *
 from datetime import datetime
@@ -29,6 +29,8 @@ def createApp():
             SupportTicket.status == "closed"
         ).count()
 
+        all_tickets = SupportTicket.query.filter(SupportTicket.id).count()
+
         users = User.query.all()
 
         # Rendern Sie das Template und übergeben Sie die Variablen an das Template
@@ -38,6 +40,7 @@ def createApp():
             users=users,
             pagination=tickets,
             closed_tickets=closed_tickets,
+            all_tickets=all_tickets,
         )
 
     @app.route("/filter", methods=["GET", "POST"])
@@ -74,29 +77,17 @@ def createApp():
             num_filtered_tickets=num_filtered_tickets,
             category=category,
             importance=importance,
-            status=status
+            status=status,
         )
 
-    """@app.route("/close_ticket/<int:ticket_id>", methods=["POST"])
-    def close_ticket(ticket_id):
-        ticket = SupportTicket.query.get(ticket_id)
-        if not ticket:
-            flash("Ticket not found.", "error")
-            return redirect(url_for("index"))
-
-        ticket.status = "closed"
-        ticket.closed_by = "Test Benutzer"
-        db.session.commit()
-
-        flash("Ticket closed successfully.", "success")
-        return redirect(url_for("index"))"""
-
     @app.route("/close_ticket/<int:ticket_id>", methods=["POST"])
-    def close_ticket(id):
+    def close_ticket(ticket_id):
         # close the ticket with the given id
-        ticket = SupportTicket.query.get_or_404(id)
+        ticket = SupportTicket.query.get_or_404(ticket_id)
         ticket.status = "closed"
-        ticket.closed_by = "Test Benutzer"
+        ticket.closed_by = (
+            "Test Benutzer"  # TODO: Update to current_user from Flask-Login
+        )
         db.session.commit()
 
         # check if a filter was applied
@@ -128,7 +119,7 @@ def createApp():
             "Website not loading properly",
             "Missing information in profile",
         ]
-        categories = ["Hardware", "Software", "Netzwerk", "Sonstiges"]
+        categories = ["Hardware", "Software", "Network", "Other"]
         importances = ["low", "medium", "high"]
         users = User.query.all()
 
