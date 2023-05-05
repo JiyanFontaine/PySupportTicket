@@ -1,6 +1,4 @@
-
 ![Logo](https://i.imgur.com/AgGGdHb.png)
-
 
 ###
 
@@ -13,6 +11,7 @@ The project is a support ticket web application that allows users to create, man
 Users can create tickets and select from a predefined category and importance. They can also edit their tickets and update the status, such as when the issue has been resolved.
 
 The application has a filtering feature that allows users to search tickets based on various criteria, such as category, importance, status, or search query. The search results are displayed in a paginated list.
+
 </details>
 
 <details>
@@ -22,18 +21,18 @@ Das Projekt ist eine Support-Ticket-Webanwendung, die es Benutzern ermöglicht, 
 Die Benutzer können Tickets erstellen und aus einer vorgegebenen Kategorie und Wichtigkeit auswählen. Sie können auch ihre Tickets bearbeiten und den Status aktualisieren, z.B. wenn das Problem gelöst wurde.
 
 Die Anwendung verfügt über eine Filterfunktion, die es den Benutzern ermöglicht, Tickets anhand verschiedener Kriterien zu suchen, wie z.B. Kategorie, Wichtigkeit, Status oder Suchanfrage. Die Suchergebnisse werden in einer paginierten Liste angezeigt.
+
 </details>
-
-
 
 ## Features
 
-- [X] Creation of tickets with categories, priorities and descriptions
-- [X] Filtering and sorting of tickets by category, priority and status
-- [X] Dashboard for support staff with overview of open tickets and closed tickets
-- [X] Pagination for the display of tickets
+- [x] Creation of tickets with categories, priorities and descriptions
+- [x] Filtering and sorting of tickets by category, priority and status
+- [x] Dashboard for support staff with overview of open tickets and closed tickets
+- [x] Pagination for the display of tickets
 
 #### Soon available:
+
 - [ ] Login functionality for users and support employees
 - [ ] Light/dark mode toggle
 - [ ] Assignment of tickets to support employees with status tracking
@@ -43,8 +42,10 @@ Die Anwendung verfügt über eine Filterfunktion, die es den Benutzern ermöglic
 - [ ] Easy configuration of database connection and application settings by using environment variables
 
 ## Web UI
+
 #### Tickets overview for support employees:
-![Imgur](https://i.imgur.com/KgxH0qG.png)
+
+![Imgur](https://i.imgur.com/8HsWMLK.png)
 
 ## Creating Tickets
 
@@ -59,7 +60,7 @@ def create_test_tickets(num_tickets):
             "Website not loading properly",
             "Missing information in profile",
         ]
-        categories = ["Hardware", "Software", "Networl", "Other"]
+        categories = ["Hardware", "Software", "Network", "Other"]
         importances = ["low", "medium", "high"]
         users = User.query.all()
 
@@ -118,6 +119,7 @@ def create_test_tickets(num_tickets):
 
         create_test_tickets(150)
 ```
+
 ## Project License
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
