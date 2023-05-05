@@ -1,3 +1,8 @@
+#######################
+# Template file for future login functionality with template code
+#######################
+
+"""
 from flask import Flask
 from flask_login import LoginManager
 
@@ -15,3 +20,4 @@ def init_app(app: Flask):
     login_manager.init_app(app)
     login_manager.login_view = 'auth.login'
     login_manager.login_message_category = 'danger'
+"""

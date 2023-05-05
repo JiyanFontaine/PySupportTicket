@@ -28,10 +28,10 @@ Die Anwendung verfügt über eine Filterfunktion, die es den Benutzern ermöglic
 
 ## Features
 
-- Creation of tickets by users with categories, priorities and descriptions
-- Filtering and sorting of tickets by category, priority and status
-- Dashboard for support staff with overview of open tickets and closed tickets
-- Pagination for the display of tickets
+- [X] Creation of tickets with categories, priorities and descriptions
+- [X] Filtering and sorting of tickets by category, priority and status
+- [X] Dashboard for support staff with overview of open tickets and closed tickets
+- [X] Pagination for the display of tickets
 
 #### Soon available:
 - [ ] Login functionality for users and support employees
@@ -50,7 +50,74 @@ Die Anwendung verfügt über eine Filterfunktion, die es den Benutzern ermöglic
 
 So far, only at the first start of the script, test tickets are generated to work with. The functionality will be implemented later with the login function and employee overview.
 
+```python
+def create_test_tickets(num_tickets):
+        ticket_topics = [
+            "Error in Login Page",
+            "Database Connection Error",
+            "Unable to save settings",
+            "Website not loading properly",
+            "Missing information in profile",
+        ]
+        categories = ["Hardware", "Software", "Networl", "Other"]
+        importances = ["low", "medium", "high"]
+        users = User.query.all()
 
+        for i in range(num_tickets):
+            ticket = SupportTicket(
+                ticket_topic=random.choice(ticket_topics),
+                description=f"This is a test ticket number {i+1}.",
+                opened_by=random.choice(users).id,
+                category=random.choice(categories),
+                importance=random.choice(importances),
+            )
+            db.session.add(ticket)
+
+        db.session.commit()
+
+    @app.before_first_request
+    def create_test_data():
+        db.create_all()
+
+        # Benutzerkonten
+        user1 = User(
+            name="Max",
+            lastname="Mustermann",
+            username="mmustermann",
+            email="max.mustermann@example.com",
+            password="pass123",
+            role="Support",
+            office="Berlin",
+        )
+        user2 = User(
+            name="Erika",
+            lastname="Musterfrau",
+            username="emusterfrau",
+            email="erika.musterfrau@example.com",
+            password="password123",
+            role="Admin",
+            office="Hamburg",
+        )
+        user3 = User(
+            name="Hans",
+            lastname="Wurst",
+            username="hwurst",
+            email="hans.wurst@example.com",
+            password="1234pass",
+            role="User",
+            office="Frankfurt",
+        )
+
+        # Benutzerkonten der Datenbank hinzufügen
+        db.session.add(user1)
+        db.session.add(user2)
+        db.session.add(user3)
+
+        # Änderungen in die Datenbank übernehmen
+        db.session.commit()
+
+        create_test_tickets(150)
+```
 ## Project License
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
