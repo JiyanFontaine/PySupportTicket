@@ -4,35 +4,52 @@
 
 ###
 
+#### Still WIP:
+
+<details>
+<summary>English:</summary>
+The project is a support ticket web application that allows users to create, manage and track support requests. The web application is based on Flask and SQLAlchemy and uses Bootstrap 5.3 for the front-end.
+
+Users can create tickets and select from a predefined category and importance. They can also edit their tickets and update the status, such as when the issue has been resolved.
+
+The application has a filtering feature that allows users to search tickets based on various criteria, such as category, importance, status, or search query. The search results are displayed in a paginated list.
+</details>
+
+<details>
+<summary>German:</summary>
 Das Projekt ist eine Support-Ticket-Webanwendung, die es Benutzern ermöglicht, Support-Anfragen zu erstellen, zu verwalten und zu verfolgen. Die Webanwendung basiert auf Flask und SQLAlchemy und nutzt Bootstrap 5.3 für das Frontend.
 
 Die Benutzer können Tickets erstellen und aus einer vorgegebenen Kategorie und Wichtigkeit auswählen. Sie können auch ihre Tickets bearbeiten und den Status aktualisieren, z.B. wenn das Problem gelöst wurde.
 
 Die Anwendung verfügt über eine Filterfunktion, die es den Benutzern ermöglicht, Tickets anhand verschiedener Kriterien zu suchen, wie z.B. Kategorie, Wichtigkeit, Status oder Suchanfrage. Die Suchergebnisse werden in einer paginierten Liste angezeigt.
-
+</details>
 
 
 
 ## Features
 
-- Erstellung von Tickets durch Benutzer mit Kategorien, Prioritäten und Beschreibungen
-- Filterung und Sortierung von Tickets nach Kategorie, Priorität und Status
-- Login-Funktionalität für Benutzer und Support-Mitarbeiter
-- Dashboard für Support-Mitarbeiter mit Übersicht über offene Tickets und geschlossener Tickets
-- Pagination für die Anzeige von Tickets
+- Creation of tickets by users with categories, priorities and descriptions
+- Filtering and sorting of tickets by category, priority and status
+- Dashboard for support staff with overview of open tickets and closed tickets
+- Pagination for the display of tickets
 
-#### Bald verfügbar:
-
-- Light/dark mode toggle
-- Zuweisung von Tickets an Support-Mitarbeiter mit Statusverfolgung
-- Übersicht über an den Support Mitarbeiter zugewiesene Tickets
-- Möglichkeit für Support-Mitarbeiter, Kommentare und Updates zu Tickets hinzuzufügen
-- Möglichkeit für Benutzer, ihre erstellten Tickets zu bearbeiten und zu schließen
-- Einfache Konfiguration der Datenbankverbindung und Anwendungseinstellungen durch Verwendung von Umgebungsvariablen
+#### Soon available:
+- [ ] Login functionality for users and support employees
+- [ ] Light/dark mode toggle
+- [ ] Assignment of tickets to support employees with status tracking
+- [ ] Overview of tickets assigned to the support employee
+- [ ] Ability for support employees to add comments and updates to tickets
+- [ ] Ability for users to edit and close their created tickets
+- [ ] Easy configuration of database connection and application settings by using environment variables
 
 ## Web UI
-#### Tickets Overview für Support Mitarbeiter:
+#### Tickets overview for support employees:
 ![Imgur](https://i.imgur.com/KgxH0qG.png)
+
+## Creating Tickets
+
+So far, only at the first start of the script, test tickets are generated to work with. The functionality will be implemented later with the login function and employee overview.
+
 
 ## Project License
 
