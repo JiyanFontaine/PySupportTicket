@@ -20,7 +20,9 @@ Die Anwendung verfügt über eine Filterfunktion, die es den Benutzern ermöglic
 - Login-Funktionalität für Benutzer und Support-Mitarbeiter
 - Dashboard für Support-Mitarbeiter mit Übersicht über offene Tickets und geschlossener Tickets
 - Pagination für die Anzeige von Tickets
-Bald verfügbar:
+
+#### Bald verfügbar:
+
 - Light/dark mode toggle
 - Zuweisung von Tickets an Support-Mitarbeiter mit Statusverfolgung
 - Übersicht über an den Support Mitarbeiter zugewiesene Tickets
